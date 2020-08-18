@@ -1,0 +1,3 @@
+# Project exclude paths
+/01_httpbasic/target/
+/04_formLogin_addFun/target/
