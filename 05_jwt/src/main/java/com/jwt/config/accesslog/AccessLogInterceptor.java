@@ -1,4 +1,4 @@
-package com.formLoginAddFun.config.accesslog;
+package com.jwt.config.accesslog;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
-/**
- * 日志记录拦截器
- */
 @Slf4j
 public class AccessLogInterceptor implements HandlerInterceptor {
     //请求开始时间标识

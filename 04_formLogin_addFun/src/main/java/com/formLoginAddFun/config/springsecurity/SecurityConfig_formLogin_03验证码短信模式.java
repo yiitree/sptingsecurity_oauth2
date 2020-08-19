@@ -80,7 +80,8 @@ public class SecurityConfig_formLogin_03验证码短信模式 extends WebSecurit
                 .successHandler(myAuthenticationSuccessHandler)
                 .failureHandler(myAuthenticationFailureHandler)
                 // 增加短信配置
-                .and().apply(smsCodeSecurityConfig)
+            .and()
+                .apply(smsCodeSecurityConfig)
             .and()
                 // 退出
                 .logout()

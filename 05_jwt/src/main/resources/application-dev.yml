@@ -1,0 +1,26 @@
+server:
+  port: 8888
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/springsecurity_oath2?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  security:
+    loginType: JSON
+
+logging:
+    config: classpath:log4j2-dev.xml
+
+mybatis:
+    configuration:
+      mapUnderscoreToCamelCase: true
+
+jwt:
+    secret: ffjaksdfjaklf # secret是用来为JWT基础信息加密和解密的密钥
+    expiration: 3600000 # JWT令牌的有效时间
+    header: JWTHeaderName # 其中header是携带JWT令牌的HTTP的Header的名称
