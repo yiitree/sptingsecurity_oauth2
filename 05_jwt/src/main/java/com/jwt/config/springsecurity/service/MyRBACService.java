@@ -10,6 +10,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+/**
+ * 权限检测
+ */
 @Component("rbacService")
 public class MyRBACService {
 

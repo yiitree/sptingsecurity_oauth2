@@ -26,6 +26,9 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.Arrays;
 
+/**
+ * springsecurity配置
+ */
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -58,18 +61,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
             .and()
                 //将我们的自定义jwtAuthenticationTokenFilter，加载到UsernamePasswordAuthenticationFilter的前面。
-
                 .logout()
                 .logoutUrl("/signout")
                 //.logoutSuccessUrl("/login.html")
                 .deleteCookies("JSESSIONID")
                 .logoutSuccessHandler(myLogoutSuccessHandler)
-             .and()
-                .rememberMe()
-                .rememberMeParameter("remember-me-new")
-                .rememberMeCookieName("remember-me-cookie")
-                .tokenValiditySeconds(2 * 24 * 60 * 60)
-                .tokenRepository(persistentTokenRepository())
+//             .and()
+//                .rememberMe()
+//                .rememberMeParameter("remember-me-new")
+//                .rememberMeCookieName("remember-me-cookie")
+//                .tokenValiditySeconds(2 * 24 * 60 * 60)
+//                // 把登录信息保存到数据库，重启不会影响
+//                .tokenRepository(persistentTokenRepository())
              .and()
                 .authorizeRequests()
                 .antMatchers("/authentication","/refreshtoken").permitAll()
@@ -101,6 +104,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * permitall没有绕过spring security，其中包含了登录的以及匿名的。
+     * ingore是完全绕过了spring security的所有filter，相当于不走spring security
+     * @param web
+     */
     @Override
     public void configure(WebSecurity web) {
         //将项目中静态资源路径开放出来
