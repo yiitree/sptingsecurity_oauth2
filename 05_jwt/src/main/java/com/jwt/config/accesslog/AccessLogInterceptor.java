@@ -7,8 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
+/**
+ * 拦截器，记录日志
+ */
 @Slf4j
 public class AccessLogInterceptor implements HandlerInterceptor {
+
     //请求开始时间标识
     private static final String LOGGER_SEND_TIME = "SEND_TIME";
     //请求日志实体标识

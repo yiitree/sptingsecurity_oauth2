@@ -5,6 +5,9 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
+/**
+ * 根据用户id查询用户权限
+ */
 public interface MyRBACServiceMapper {
 
     @Select("SELECT url\n" +

@@ -25,9 +25,7 @@ public class MyRBACService {
      * 判断某用户是否具有该request资源的访问权限
      */
     public boolean hasPermission(HttpServletRequest request, Authentication authentication){
-
         Object principal = authentication.getPrincipal();
-
         if(principal instanceof UserDetails){
             String username = ((UserDetails)principal).getUsername();
 
@@ -36,11 +34,8 @@ public class MyRBACService {
             return urls.stream().anyMatch(
                     url -> antPathMatcher.match(url,request.getRequestURI())
             );
-
         }
-
         return false;
     }
-
 
 }

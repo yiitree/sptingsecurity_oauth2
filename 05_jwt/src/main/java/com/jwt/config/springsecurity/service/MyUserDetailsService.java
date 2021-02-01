@@ -12,6 +12,9 @@ import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * 查询用户信息
+ */
 @Component
 public class MyUserDetailsService implements UserDetailsService {
 
@@ -26,7 +29,6 @@ public class MyUserDetailsService implements UserDetailsService {
 
         //加载用户角色列表
         List<String> roleCodes = myUserDetailsServiceMapper.findRoleByUserName(username);
-
 
         //通过用户角色列表加载用户的资源权限列表
         List<String> authorties = myUserDetailsServiceMapper.findAuthorityByRoleCodes(roleCodes);
@@ -43,8 +45,6 @@ public class MyUserDetailsService implements UserDetailsService {
                         String.join(",",authorties)
                 )
         );
-
-
         return myUserDetails;
     }
 }

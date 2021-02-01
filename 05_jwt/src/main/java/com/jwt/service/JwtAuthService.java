@@ -1,6 +1,6 @@
 package com.jwt.service;
 
-import com.jwt.config.springsecurity.jwt.JwtTokenUtil;
+import com.jwt.config.springsecurity.util.JwtTokenUtil;
 import com.jwt.config.exception.CustomException;
 import com.jwt.config.exception.CustomExceptionType;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -32,20 +32,22 @@ public class JwtAuthService {
      */
     public String login(String username,String password) throws CustomException {
         try {
-            UsernamePasswordAuthenticationToken upToken =
-                    new UsernamePasswordAuthenticationToken(username, password);
+            UsernamePasswordAuthenticationToken upToken = new UsernamePasswordAuthenticationToken(username, password);
             Authentication authentication = authenticationManager.authenticate(upToken);
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }catch (AuthenticationException e){
-            throw new CustomException(CustomExceptionType.USER_INPUT_ERROR
-                            ,"用户名或者密码不正确");
+            throw new CustomException(CustomExceptionType.USER_INPUT_ERROR,"用户名或者密码不正确");
         }
-
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         return jwtTokenUtil.generateToken(userDetails);
     }
 
 
+    /**
+     * 刷新jwt，失效则返回null
+     * @param oldToken
+     * @return
+     */
     public String refreshToken(String oldToken){
         if(!jwtTokenUtil.isTokenExpired(oldToken)){
             return jwtTokenUtil.refreshToken(oldToken);

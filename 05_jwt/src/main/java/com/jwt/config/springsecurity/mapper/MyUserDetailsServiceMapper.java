@@ -6,6 +6,9 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
+/**
+ * 根据用户名查询用户信息（内部使用，所以写在service中，这样服务就不会暴露）
+ */
 public interface MyUserDetailsServiceMapper {
 
     //根据userID查询用户信息

@@ -14,13 +14,14 @@ spring:
     loginType: JSON
 
 logging:
-    config: classpath:log4j2-dev.xml
+  config: classpath:log4j2-dev.xml
 
 mybatis:
-    configuration:
-      mapUnderscoreToCamelCase: true
+  configuration:
+    mapUnderscoreToCamelCase: true
 
+# jwt相关配置
 jwt:
-    secret: ffjaksdfjaklf # secret是用来为JWT基础信息加密和解密的密钥
-    expiration: 3600000 # JWT令牌的有效时间
-    header: JWTHeaderName # 其中header是携带JWT令牌的HTTP的Header的名称
+  secret: ffjaksdfjaklf # secret是用来为JWT基础信息加密和解密的密钥
+  expiration: 3600000 # JWT令牌的有效时间
+  header: JWTHeaderName # 其中header是携带JWT令牌的HTTP的Header的名称

@@ -1,7 +1,7 @@
 package com.jwt.config.springsecurity;
 
 import com.jwt.config.springsecurity.handler.MyLogoutSuccessHandler;
-import com.jwt.config.springsecurity.jwt.JwtAuthenticationTokenFilter;
+import com.jwt.config.filter.JwtAuthenticationTokenFilter;
 import com.jwt.config.springsecurity.service.MyUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -73,12 +73,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .tokenValiditySeconds(2 * 24 * 60 * 60)
 //                // 把登录信息保存到数据库，重启不会影响
 //                .tokenRepository(persistentTokenRepository())
-             .and()
+            .and()
+                // 设置白名单
                 .authorizeRequests()
                 .antMatchers("/authentication","/refreshtoken").permitAll()
                 .antMatchers("/index").authenticated()
                 .anyRequest().access("@rbacService.hasPermission(request,authentication)")
-             .and()
+            .and()
                 // 因为我们使用了JWT，表明了我们的应用是一个前后端分离的应用，所以我们可以开启STATELESS禁止使用session。
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -147,7 +148,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:8888"));
         configuration.setAllowedMethods(Arrays.asList("GET","POST"));
         configuration.applyPermitDefaultValues();
-
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;

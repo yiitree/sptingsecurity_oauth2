@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/01_httpbasic/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/01_httpbasic/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/02_formLogin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/03_formLogin_RBAC/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/04_formLogin_addFun/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/05_jwt/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
