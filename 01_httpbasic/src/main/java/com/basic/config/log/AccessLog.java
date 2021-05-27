@@ -1,4 +1,4 @@
-package com.basic.config.accesslog;
+package com.basic.config.log;
 
 import lombok.Data;
 

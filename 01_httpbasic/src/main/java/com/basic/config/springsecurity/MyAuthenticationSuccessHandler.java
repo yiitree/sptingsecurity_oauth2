@@ -21,7 +21,7 @@ public class MyAuthenticationSuccessHandler extends SavedRequestAwareAuthenticat
     @Value("${spring.security.loginType}")
     private String loginType;
 
-    private static ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,

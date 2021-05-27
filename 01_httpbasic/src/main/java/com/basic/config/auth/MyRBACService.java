@@ -15,7 +15,7 @@ import java.util.List;
 @Component("rabcService")
 public class MyRBACService {
 
-    private AntPathMatcher antPathMatcher = new AntPathMatcher();
+    private final AntPathMatcher antPathMatcher = new AntPathMatcher();
 
     //@Resource
     //private MyRBACServiceMapper myRBACServiceMapper;

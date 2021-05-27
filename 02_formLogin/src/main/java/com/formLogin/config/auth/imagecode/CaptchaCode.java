@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 
 public class CaptchaCode {
 
-    private String code;
+    private final String code;
 
-    private LocalDateTime expireTime;
+    private final LocalDateTime expireTime;
 
 
     public CaptchaCode(String code, int expireAfterSeconds){

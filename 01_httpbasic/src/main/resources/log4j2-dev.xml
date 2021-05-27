@@ -45,7 +45,7 @@
     </Appenders>
 
     <Loggers>
-        <logger name="com.basic.config.accesslog.AccessLogInterceptor" level="info" additivity="false">
+        <logger name="com.basic.config.log.AccessLogInterceptor" level="info" additivity="false">
             <AppenderRef ref="accessLog" />
         </logger>
         <root level="info">

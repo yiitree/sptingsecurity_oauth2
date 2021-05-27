@@ -10,9 +10,9 @@ public enum CustomExceptionType {
         this.typeDesc = typeDesc;
     }
 
-    private String typeDesc;//异常类型中文描述
+    private final String typeDesc;//异常类型中文描述
 
-    private int code; //code
+    private final int code; //code
 
     public String getTypeDesc() {
         return typeDesc;

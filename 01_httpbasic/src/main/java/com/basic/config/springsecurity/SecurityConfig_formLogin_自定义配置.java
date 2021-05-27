@@ -68,7 +68,7 @@ public class SecurityConfig_formLogin_自定义配置 extends WebSecurityConfigu
                 )
             .and()
                 .sessionManagement()
-                // 登录超时跳转
+                // 登录超时跳转 --- 要加入白名单
                 .invalidSessionUrl("/invalidSession.html")
             .and()
                 // 默认情况下，Spring Security启用了migrationSession保护方式。
@@ -127,4 +127,12 @@ public class SecurityConfig_formLogin_自定义配置 extends WebSecurityConfigu
         web.ignoring().antMatchers( "/css/**", "/fonts/**", "/img/**", "/js/**");
     }
 
+    public static void main(String[] args) {
+
+        String p = "123";
+        final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        final String encode = bCryptPasswordEncoder.encode(p);
+        System.out.println(encode);
+
+    }
 }

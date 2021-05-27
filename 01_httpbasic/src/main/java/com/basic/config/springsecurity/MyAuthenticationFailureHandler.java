@@ -35,7 +35,7 @@ public class MyAuthenticationFailureHandler extends SimpleUrlAuthenticationFailu
     @Value("${spring.security.loginType}")
     private String loginType;
 
-    private static ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Resource
     MyUserDetailsService myUserDetailsService;

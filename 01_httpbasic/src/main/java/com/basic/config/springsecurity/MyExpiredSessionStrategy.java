@@ -3,6 +3,7 @@ package com.basic.config.springsecurity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.web.session.SessionInformationExpiredEvent;
 import org.springframework.security.web.session.SessionInformationExpiredStrategy;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import java.io.IOException;
@@ -14,9 +15,10 @@ import java.util.Map;
  * @Author: 曾睿
  * @Date: 2020/8/17 13:49
  */
+@Component
 public class MyExpiredSessionStrategy implements SessionInformationExpiredStrategy {
     //jackson的JSON处理对象
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public void onExpiredSessionDetected(SessionInformationExpiredEvent event) throws IOException, ServletException {

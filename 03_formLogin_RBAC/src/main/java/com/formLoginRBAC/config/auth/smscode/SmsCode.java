@@ -4,11 +4,11 @@ import java.time.LocalDateTime;
 
 public class SmsCode {
 
-    private String code; //短信验证码
+    private final String code; //短信验证码
 
-    private LocalDateTime expireTime; //过期时间
+    private final LocalDateTime expireTime; //过期时间
 
-    private String mobile;
+    private final String mobile;
 
 
     public SmsCode(String code, int expireAfterSeconds,String mobile){

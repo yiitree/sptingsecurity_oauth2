@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class MyExpiredSessionStrategy implements SessionInformationExpiredStrategy {
     //jackson的JSON处理对象
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public void onExpiredSessionDetected(SessionInformationExpiredEvent event) throws IOException, ServletException {

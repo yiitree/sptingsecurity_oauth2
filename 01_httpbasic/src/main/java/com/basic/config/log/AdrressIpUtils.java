@@ -1,4 +1,4 @@
-package com.basic.config.accesslog;
+package com.basic.config.log;
 
 import org.apache.commons.lang3.StringUtils;
 

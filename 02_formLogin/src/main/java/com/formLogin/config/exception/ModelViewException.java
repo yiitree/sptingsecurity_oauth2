@@ -3,9 +3,9 @@ package com.formLogin.config.exception;
 public class ModelViewException extends RuntimeException{
 
     //异常错误编码
-    private int code ;
+    private final int code ;
     //异常信息
-    private String message;
+    private final String message;
 
     public static ModelViewException transfer(CustomException e) {
         return new ModelViewException(e.getCode(),e.getMessage());
